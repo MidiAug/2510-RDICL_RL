@@ -1,13 +1,14 @@
+# !/bin/bash
 set -x
 
-WORK_SPACE=/home/lcq/data1/_tasks/2510-RDICL_RL
-cd ${WORK_SPACE}
-export WANDB_RUN_ID=9q1rq07q
+WORK_SPACE=$(os.getenv("WORK_SPACE"))
+VERL_HOME=$(os.getenv("VERL_HOME"))
+cd ${VERL_HOME}
 
 export CUDA_LAUNCH_BLOCKING=1
 export HYDRA_FULL_ERROR=1
 export GPU_PER_NODE_COUNT=4
-export CUDA_VISIBLE_DEVICES=4,5,6,7
+export CUDA_VISIBLE_DEVICES=1,2,3,4
 export AZUREML_NODE_COUNT=1
 export HF_ENDPOINT=https://hf-mirror.com
 
@@ -21,7 +22,7 @@ reward_fn_path=${WORK_SPACE}/script/rl/verl_math_verify.py
 model_path=${WORK_SPACE}/ckpts/stf-demo8/checkpoint-3
 
 project_name='stf+rl'
-experiment_name='qwen3_1.7b_base-stf_demo8_epoch3-rl'
+experiment_name='qwen3_1.7b_base-stf_demo8_ckpt3-rl'
 default_local_dir="./${project_name}/${experiment_name}"
 
 WANDB_MODE=online python -m verl.trainer.main_ppo \

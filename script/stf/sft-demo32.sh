@@ -1,10 +1,10 @@
 #!/bin/bash
 set -x
-WORK_SPACE=/home/lcq/data1/_tasks/2510-RDICL_RL
+WORK_SPACE=$(os.getenv("WORK_SPACE"))
 cd ${WORK_SPACE}
 DEMO_COUNT=32
 
-export CUDA_VISIBLE_DEVICES=4
+export CUDA_VISIBLE_DEVICES=3
 # 禁用 tqdm 进度条，避免重定向到日志文件时产生混乱的输出
 export TQDM_DISABLE=1
 # 确保 Python 输出不被缓冲，立即刷新到日志文件

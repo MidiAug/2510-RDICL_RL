@@ -14,8 +14,9 @@ from pathlib import Path
 plt.rcParams['font.sans-serif'] = ['SimHei', 'DejaVu Sans']  # 用来正常显示中文标签
 plt.rcParams['axes.unicode_minus'] = False  # 用来正常显示负号
 
+WORK_SPACE = os.getenv("WORK_SPACE")
 # 定义log文件所在目录
-log_dir = '/home/lcq/data1/_tasks/2510-RDICL_RL/logs/_useful'
+log_dir = f'{WORK_SPACE}/logs/_useful'
 
 
 def extract_demo_name(filepath):

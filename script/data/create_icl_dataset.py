@@ -2,10 +2,11 @@ import json
 import random
 import copy
 from datasets import load_dataset, Dataset
-
+import os
 # ----------------- 参数 -----------------
-PARQUET_FILE = "/home/lcq/data1/_tasks/2510-RDICL_RL/data/train.parquet"
-DEMO_FILE = "/home/lcq/data1/_tasks/2510-RDICL_RL/data/all_demo-48.jsonl"
+WORK_SPACE = os.getenv("WORK_SPACE")
+PARQUET_FILE = f"{WORK_SPACE}/data/train.parquet"
+DEMO_FILE = f"{WORK_SPACE}/data/all_demo-48.jsonl"
 
 target_icl_size = 4
 target_base_size = 4
@@ -14,8 +15,8 @@ DEMO_COUNT = 32
 USE_RANDOM_DEMO = True
 
 # 输出文件
-OUTPUT_PARQUET = f"/home/lcq/data1/_tasks/2510-RDICL_RL/data/demo{DEMO_COUNT}-train_icl.parquet"
-OUTPUT_DEMO_JSONL = f"/home/lcq/data1/_tasks/2510-RDICL_RL/data/demo{DEMO_COUNT}.jsonl"
+OUTPUT_PARQUET = f"{WORK_SPACE}/data/demo{DEMO_COUNT}-train_icl.parquet"
+OUTPUT_DEMO_JSONL = f"{WORK_SPACE}/data/demo{DEMO_COUNT}.jsonl"
 
 random.seed(42)
 
