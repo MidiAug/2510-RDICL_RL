@@ -1,25 +1,49 @@
 # RDICL_RL
 
-强化学习与In-Context Learning相关项目。
+Reinforcement Learning with In-Context Learning (RDICL) 项目
 
 ## 项目结构
 
 ```
+.
 ├── script/          # 脚本文件
 │   ├── data/       # 数据处理脚本
-│   ├── stf/        # SFT相关脚本
-│   └── rl/         # 强化学习相关脚本
-├── data/           # 数据文件
-├── ckpts/          # 模型检查点
-├── logs/           # 日志文件
-└── wandb/          # Weights & Biases跟踪数据
+│   ├── stf/        # SFT (Supervised Fine-Tuning) 脚本
+│   └── rl/         # Reinforcement Learning 脚本
+├── data/           # 数据文件（不包含在git中）
+├── ckpts/          # 模型检查点（不包含在git中）
+├── logs/           # 日志文件（不包含在git中）
+└── wandb/          # WandB实验跟踪（不包含在git中）
 ```
 
-## 环境要求
+## 主要功能
 
-请查看 `requirements.txt` 了解依赖要求。
+- **数据处理**: 从训练数据中提取ICL演示样本
+- **SFT训练**: 监督微调脚本
+- **RL训练**: 强化学习训练脚本
 
 ## 使用说明
 
-（待补充）
+### 数据处理
+
+1. 提取ICL演示样本：
+```bash
+python script/data/extract-icl_demo.py
+```
+
+2. 创建ICL数据集：
+```bash
+python script/data/create_icl_dataset.py
+```
+
+### 训练
+
+参考 `script/stf/` 和 `script/rl/` 目录下的脚本进行训练。
+
+## 依赖
+
+安装依赖：
+```bash
+pip install -r requirements.txt
+```
 

@@ -4,33 +4,44 @@ __pycache__/
 *$py.class
 *.so
 .Python
-env/
-venv/
-ENV/
-.venv
+*.egg-info/
+dist/
+build/
+
+# 数据文件（通常很大，不上传）
+# 忽略 data/ 目录下的所有内容
+data/*
+# 但保留以下三个数据文件
+!data/all_demo-48.jsonl
+!data/test.parquet
+!data/train.parquet
+# 忽略其他位置的 parquet、jsonl 和 json 文件（不影响上面已允许的文件）
+*.parquet
+*.jsonl
+*.json
+# 再次明确允许 data/ 目录下的特定文件（覆盖上面的全局规则）
+!data/all_demo-48.jsonl
+!data/test.parquet
+!data/train.parquet
 
 # 模型检查点
-ckpts/
+# ckpts 目录要保留，但忽略里面的所有文件
+ckpts/*
+ckpts/**
+# 但保留 .gitkeep 文件以确保目录被跟踪
+!ckpts/.gitkeep
 *.ckpt
 *.pth
 *.pt
 *.bin
-*.safetensors
 
 # 日志文件
 logs/
 *.log
 
-# Weights & Biases
+# 实验跟踪
 wandb/
-
-# 数据文件（通常很大，不适合git）
-data/*.parquet
-data/*.jsonl
-data/*.json
-data/*.csv
-data/*.pkl
-data/*.pickle
+.wandb/
 
 # IDE
 .vscode/
@@ -39,16 +50,18 @@ data/*.pickle
 *.swo
 *~
 
-# OS
+# 系统文件
 .DS_Store
 Thumbs.db
 
-# Jupyter Notebook
-.ipynb_checkpoints
-*.ipynb
+# 环境变量
+.env
+.venv
+venv/
+env/
 
 # 临时文件
 *.tmp
-*.temp
 *.bak
+*.cache
 
